@@ -4,6 +4,7 @@ import { useState } from "react";
 import Search from "@/components/Search";
 import { NavLink } from "@/components/NavLink";
 import { CourseCard, CourseCardSkeleton } from "@/components/CourseCard";
+import { PriceHistory } from "@/components/PriceHistory";
 
 export default function Home() {
   const [text, setText] = useState("");
@@ -48,6 +49,7 @@ export default function Home() {
 
       <CourseCard {...obj} />
       <CourseCardSkeleton />
+      <PriceHistory />
     </div>
   );
 }
