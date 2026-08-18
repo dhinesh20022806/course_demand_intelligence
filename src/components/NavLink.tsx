@@ -4,6 +4,7 @@ import Link, { useLinkStatus } from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, type ReactNode } from "react";
 import { useNavProgress } from "@/hooks/useNavProgress";
+import { LinkProgressByPage } from "./LinkProgress";
 
 interface NavLinkProps {
   href: string;
@@ -11,22 +12,6 @@ interface NavLinkProps {
   className?: string;
   activeClassName?: string;
   exact?: boolean;
-}
-
-function LinkProgress() {
-  const { pending } = useLinkStatus();
-
-  const { start, done } = useNavProgress();
-
-  useEffect(() => {
-    if (pending) {
-      start();
-      return done;
-    }
-    return undefined;
-  }, [pending]);
-
-  return null;
 }
 
 export function NavLink({
@@ -48,7 +33,7 @@ export function NavLink({
 
   return (
     <Link href={href} className={finialClassNames}>
-      <LinkProgress />
+      <LinkProgressByPage />
       {children}
     </Link>
   );
