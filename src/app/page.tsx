@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import Search from "@/components/Search";
 import { NavLink } from "@/components/NavLink";
-import { CourseCard } from "@/components/CourseCard";
+import { CourseCard, CourseCardSkeleton } from "@/components/CourseCard";
 
 export default function Home() {
   const [text, setText] = useState("");
@@ -44,8 +44,10 @@ export default function Home() {
         </svg>
         App
       </NavLink>
+      <div className="skeleton h-32 w-32"></div>
 
       <CourseCard {...obj} />
+      <CourseCardSkeleton />
     </div>
   );
 }
