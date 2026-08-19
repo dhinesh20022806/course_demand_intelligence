@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { NavProgressProvider } from "@/context/ProgressContext";
 import { TopProgressBar } from "@/components/TopProgressBar";
+import { SideBar } from "@/components/SideBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +29,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <NavProgressProvider>
           <TopProgressBar />
-          {children}
+          <div className="flex gap-10 w-full">
+            <div>
+              <SideBar />
+            </div>
+            <div className="overflow-y-scroll w-full h-screen flex  justify-center ">
+              <div className="flex h-fit  w-[80%] justify-center my-10">
+                {children}
+              </div>
+            </div>
+          </div>
         </NavProgressProvider>
       </body>
     </html>
